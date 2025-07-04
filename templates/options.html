@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Salesforce Turbo Settings</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-4">
+        <legend class="h1 mb-4">Salesforce Turbo Settings</legend>
+        <div class="card-deck">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <div class="card-title h2">OpenAI API</div>
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="apiKey" class="form-label">OpenAI API Key:</label>
+                        <input id="apiKey" type="password" autocomplete="off" class="form-control"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="template" class="form-label">Auto-fill Template (JSON):</label>
+                        <textarea id="template" rows="6" cols="40" class="form-control"></textarea>
+                    </div>
+                    <button id="saveOpenAPI" class="btn button btn-primary">Save Changes</button>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <div class="card-title h2">Salesforce Client API</div>
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="clientId" class="form-label">Client ID:</label>
+                        <input id="clientId" type="password" autocomplete="off" class="form-control"/>
+                    </div>
+                    <button id="saveSalesforceAPI" class="btn button btn-primary">Save Changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="../js/options.js"></script>
+</body>
+</html>

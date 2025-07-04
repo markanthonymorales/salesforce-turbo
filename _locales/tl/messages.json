@@ -1,0 +1,19 @@
+{
+  "app_name": { "message": "Mabilis na workforce" },
+  "open_dashboard": { "message": "Buksan ang Dashboard" },
+  "copy_record_id": { "message": "Kopyahin ang Record ID" },
+  "copy_record_url": { "message": "Kopyahin ang Record URL" },
+  "toggle_api_fields": { "message": "Ipakita ang API Field Name" },
+  "open_search": { "message": "Buksan ang Global Search" },
+  "generate_ai_log": { "message": "Gumawa ng AI Call Log" },
+  "linkedin_lookup": { "message": "Hanapin sa LinkedIn" },
+  "auto_fill_form": { "message": "Auto Fill Form" },
+  "validate_fields": { "message": "I-validate ang Fields" },
+  "set_reminder": { "message": "Mag-set ng Paalala" },
+  "connect_salesforce" : { "message": "Kumonekta sa Salesforce" },
+  "settings": { "message": "Mga Setting" },
+  "create_record": { "message": "Lumikha ng Record" },
+  "create_now": { "message": "Lumikha Ngayon" },
+  "object_viewer": { "message": "Tignan ang mga Bagay" },
+  "fetch_data": { "message": "Kunin ang Mga Tala" }
+}
