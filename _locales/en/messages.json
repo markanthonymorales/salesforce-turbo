@@ -1,0 +1,19 @@
+{
+  "app_name": { "message": "Salesforce Turbo" },
+  "open_dashboard": { "message": "Open Dashboard" },
+  "copy_record_id": { "message": "Copy Record ID" },
+  "copy_record_url": { "message": "Copy Record URL" },
+  "toggle_api_fields": { "message": "Toggle API Field Names" },
+  "open_search": { "message": "Open Global Search" },
+  "generate_ai_log": { "message": "Generate AI Call Log" },
+  "linkedin_lookup": { "message": "Lookup on LinkedIn" },
+  "auto_fill_form": { "message": "Auto Fill Form" },
+  "validate_fields": { "message": "Validate Fields" },
+  "set_reminder": { "message": "Set Reminder" },
+  "connect_salesforce" : { "message": "Connect to Salesforce" },
+  "settings": { "message": "Settings" },
+  "create_record": { "message": "Create Record" },
+  "create_now": { "message": "Create Now" },
+  "object_viewer": { "message": "Object Viewer" },
+  "fetch_data": { "message": "Fetch Records" }
+}

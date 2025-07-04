@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Salesforce Dashboard</title>
+        <script src="../js/chart.umd.js"></script>
+        <link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css">
+    </head>
+    <body>
+        <div class="container mt-4">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <div class="card-title h2">Salesforce Summary</div>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-6">
+                            <canvas id="leadChart" width="300" height="200"></canvas>
+                        </div>
+                        <div class="col-6">
+                            <canvas id="opportunityChart" width="300" height="200"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <script type="module" src="../js/dashboard.js"></script>
+    </body>
+</html>

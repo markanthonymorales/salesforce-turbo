@@ -1,0 +1,19 @@
+{
+  "app_name": { "message": "セールスフォース・ターボ" },
+  "open_dashboard": { "message": "ダッシュボードを開く" },
+  "copy_record_id": { "message": "レコードIDのコピー" },
+  "copy_record_url": { "message": "レコードの URL をコピー" },
+  "toggle_api_fields": { "message": "APIフィールド名を切り替える" },
+  "open_search": { "message": "グローバル検索を開く" },
+  "generate_ai_log": { "message": "AI通話ログの生成" },
+  "linkedin_lookup": { "message": "LinkedIn での検索" },
+  "auto_fill_form": { "message": "自動入力フォーム" },
+  "validate_fields": { "message": "フィールドの検証" },
+  "set_reminder": { "message": "リマインダーを設定する" },
+  "connect_salesforce" : { "message": "Salesforce に接続する" },
+  "settings": { "message": "設定" },
+  "create_record": { "message": "レコードを作成" },
+  "create_now": { "message": "今すぐ作成" },
+  "object_viewer": { "message": "オブジェクトビューア" },
+  "fetch_data": { "message": "レコードを取得" }
+}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="header-row">
+        <h1 data-i18n="app_name">Salesforce Turbo</h1>
+        <select id="languageSelector" title="Select Language" class="form-control">
+            <option value="en">English</option>
+            <option value="tl">Tagalog</option>
+            <option value="jp">Japanese</option>
+            <option value="es">Espa&#241;ol</option>
+        </select>
+    </div>
+
+    <div class="card-group">
+        <div class="card">
+            <div class="card-body">
+                <div class="button-group">
+                    <button id="openDashboard" data-i18n="open_dashboard" class="btn button btn-primary">Open Dashboard</button>
+                    <button id="copyRecordId" data-i18n="copy_record_id" class="btn button btn-primary">Copy Record ID</button>
+                    <button id="copyRecordUrl" data-i18n="copy_record_url" class="btn button btn-primary">Copy Record URL</button>
+                    <button id="toggleFieldApiNames" data-i18n="toggle_api_fields" class="btn button btn-primary">Toggle API Field Names</button>
+                    <button id="goToSearch" data-i18n="open_search" class="btn button btn-primary">Open Global Search</button>
+                    <button id="generateCallLog" data-i18n="generate_ai_log" class="btn button btn-primary">Generate AI Call Log</button>
+                    <button id="lookupLinkedIn" data-i18n="linkedin_lookup" class="btn button btn-primary">Lookup on LinkedIn</button>
+                    <button id="autoFillForm" data-i18n="auto_fill_form" class="btn button btn-primary">Auto Fill Form</button>
+                    <button id="validateFields" data-i18n="validate_fields" class="btn button btn-primary">Validate Fields</button>
+                    <button id="remindFollowUp" data-i18n="set_reminder" class="btn button btn-primary">Set Reminder</button>
+                    <button id="loginSalesforce" data-i18n="connect_salesforce" class="btn button btn-primary">Connect to Salesforce</button>
+                    <button id="openLogger" data-i18n="open_logger" class="btn button btn-primary">Open Logger</button>
+                </div>
+                <a href="./templates/options.html" target="_blank" class="btn button btn-light w-100" data-i18n="settings">Settings</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <div class="card-title" data-i18n="create_record">Create Record</div>
+            </div>
+            <div class="card-body">
+                <select id="createType" class="form-control">
+                    <option value="Lead">Lead</option>
+                    <option value="Task">Task</option>
+                </select>
+                <input type="text" id="createName" placeholder="Name or Subject" class="form-control"/>
+                <button id="createRecordBtn" data-i18n="create_now" class="btn button btn-primary">Create Now</button>
+            </div>
+        </div>
+    
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <div class="card-title" data-i18n="object_viewer">Object Viewer</div>
+            </div>
+            <div class="card-body">
+                <select id="objectType" class="form-control">
+                    <option value="Lead">Lead</option>
+                    <option value="Opportunity">Opportunity</option>
+                </select>
+                <button id="fetchRecords" data-i18n="fetch_data" class="btn button btn-primary">Fetch Records</button>
+                <ul id="recordList">
+                    <li data-i18n="no_available_data">No available data...</li>
+                </ul>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <div class="card-title" data-i18n="object_custom_viewer">Custom Object Viewer</div>
+            </div>
+            <div class="card-body">
+                <input type="text" id="customObjectApi" placeholder="Custom Object API Name" class="form-control"/>
+                <button id="fetchCustomObject" data-i18n="fetch_custom_object" class="btn button btn-primary">Fetch Custom Object</button>
+                <ul id="customObjectList">
+                    <li data-i18n="no_available_data">No available data...</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="popup.js"></script>
+</body>
+</html>

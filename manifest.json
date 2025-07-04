@@ -1,0 +1,45 @@
+{
+  "manifest_version": 3,
+  "name": "Salesforce Turbo",
+  "version": "1.0",
+  "description": "Boost Salesforce with smart actions, AI call logs, auto fillers, and reminders.",
+  "default_locale": "en",
+  "permissions": [
+    "scripting",
+    "activeTab",
+    "storage",
+    "notifications",
+    "identity",
+    "tabs"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icons/icon.png"
+  },
+  "oauth2": {
+    "client_id": "YOUR_SALESFORCE_CLIENT_ID",
+    "scopes": [
+      "api",
+      "refresh_token",
+      "offline_access"
+    ]
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "options_page": "./templates/options.html",
+  "content_scripts": [
+    {
+      "matches": ["*://*.salesforce.com/*", "*://*.lightning.force.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "host_permissions": [
+    "*://*.salesforce.com/*",
+    "*://*.lightning.force.com/*"
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self';"
+  }
+}
