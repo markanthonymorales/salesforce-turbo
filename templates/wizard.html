@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Salesforce Tools</title>
+    <link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css" />
+  </head>
+
+  <body>
+    <div class="container py-5">
+      <h1 class="h1">🛠 Salesforce Migration Wizard</h1>
+      <div class="row">
+        <div class="col-md-8 mb-4">
+          <div class="col-md-12 mb-4">
+            <!-- Wizard Step 1: Field Mapping -->
+            <section class="card">
+              <div class="card-header">
+                <h2>1️⃣ Field Mapping</h2>
+              </div>
+              <div class="card-body">
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-md">
+                      <label>Source Object:</label>
+                      <select id="sourceObject" class="form-control"></select>
+                    </div>
+                    <div class="col-md">
+                      <label>Target Object:</label>
+                      <select id="targetObject" class="form-control"></select>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <input
+                    type="text"
+                    id="mappingProject"
+                    placeholder="Project name (e.g. LeadToContact)"
+                    class="form-control"
+                  />
+                </div>
+                <div class="form-group">
+                  <button id="loadFields" class="btn button btn-default">
+                    Load Fields
+                  </button>
+                  <button id="clearFields" class="btn button btn-warning">
+                    Clear Fields
+                  </button>
+                </div>
+                <div class="form-group">
+                  <table id="mappingTable" class="table">
+                    <thead>
+                      <tr>
+                        <th>Source Field</th>
+                        <th>Target Field</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody></tbody>
+                  </table>
+                </div>
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-md">
+                      <button id="saveMapping" class="btn button btn-default">
+                        💾 Save Mapping
+                      </button>
+                    </div>
+                    <div class="col-md">
+                      <button id="exportMapping" class="btn button btn-default">
+                        📤 Export Mapping
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <input
+                    type="file"
+                    id="importJson"
+                    accept="application/json"
+                    class="form-control"
+                  />
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+        <div class="col-md mb-4">
+          <div class="row">
+            
+            <div class="col-md-12 mb-4">
+              <!-- Wizard Step 3: Migrate -->
+              <section class="card">
+                <div class="card-header">
+                  <h2>3️⃣ Migrate Records</h2>
+                </div>
+                <div class="card-body">
+                  <div class="form-group">
+                    <button id="migrateRecords" class="btn button btn-default">
+                      🚚 Run Migration
+                    </button>
+                  </div>
+                  <div class="form-group">
+                    <code id="migrateStatus"></code>
+                  </div>
+                </div>
+              </section>
+            </div>
+            
+            <div class="col-md-12 mb-4">
+              <!-- Wizard Step 2: Preview & Transform -->
+              <section class="card">
+                <div class="card-header">
+                  <h2>2️⃣ Preview Data</h2>
+                </div>
+                <div class="card-body">
+                  <div class="form-group">
+                    <button id="previewData" class="btn button btn-default">
+                      🔍 Preview Transformed Records
+                    </button>
+                  </div>
+                  <div class="form-group">
+                    <div class="preview-table">
+                      <table id="previewTable" class="table">
+                        <thead>
+                          <tr></tr>
+                        </thead>
+                        <tbody></tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="../js/wizard.js"></script>
+  </body>
+</html>

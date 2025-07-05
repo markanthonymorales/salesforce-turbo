@@ -1,5 +1,5 @@
 import { getCurrentTab } from './utils.js';
-import { fetchWithToken } from './sf-api.js';
+import { fetchWithToken, fetchSOAPAction } from './sf-api.js';
 import { cleanQuery } from './clean.js';
 
 export function initUIHandlers() {
@@ -87,7 +87,7 @@ export function initUIHandlers() {
 
   document.getElementById("fetchCustomObject").onclick = async () => {
     const apiName = document.getElementById("customObjectApi").value;
-    if (!apiName) return alert("Enter API name.");
+    if (!apiName) return alert("Enter Object name.");
     const data = await fetchWithToken(`query?q=${cleanQuery(`SELECT Name FROM ${apiName} LIMIT 5`)}`);
     const list = document.getElementById("customObjectList");
     list.innerHTML = "";
@@ -110,6 +110,10 @@ export function initUIHandlers() {
 
   document.getElementById("openLogger").onclick = () => {
     chrome.tabs.create({ url: chrome.runtime.getURL("./templates/logger.html") });
+  };
+
+  document.getElementById("openFieldMapping").onclick = () => {
+    chrome.tabs.create({ url: chrome.runtime.getURL("./templates/field-mapping.html") });
   };
 
   document.getElementById("generateCallLog").onclick = async () => {

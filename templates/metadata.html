@@ -1,0 +1,206 @@
+<!-- field-mapper.html + deploy page with advanced features -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salesforce Tools</title>
+    <link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css">
+    <style>
+			label,
+			textarea,
+			iframe {
+				display: block;
+				width: 100%;
+			}
+
+			textarea {
+				margin-bottom: 1.5em;
+				min-height: 8em;
+			}
+
+			.editor {
+				display: grid;
+				grid-template-columns: 1fr;
+				grid-template-rows: 1fr;
+				gap: 0;
+			}
+
+			.editor pre,
+			.editor textarea {
+				grid-area: 1 / 1 / 2 / 2;
+			}
+
+			pre,
+			.editor textarea {
+				background-color: #f7f7f7;
+				color: #272727;
+				display: block;
+				line-height: 1.5;
+				margin: 0 0 1.5625em;
+				overflow: auto;
+				padding: 0.8125em;
+				white-space: pre-wrap;
+				word-break: break-all;
+			}
+
+			.editor textarea {
+				background-color: transparent;
+				border: 1px solid #ced4da;
+                border-radius: .25rem;
+                transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+				color: transparent;
+				caret-color: #000;
+				overflow: hidden;
+				resize: none;
+				width: 100%;
+			}
+
+			code {
+				word-wrap: break-word;
+			}
+
+			pre,
+			code,
+			.editor textarea {
+				font-family: Menlo, Monaco, "Courier New", monospace;
+				font-size: 0.875em;
+			}
+
+			pre code {
+				color: inherit;
+				font-size: 1em;
+			}
+    </style>
+    <link rel="stylesheet" type="text/css" href="../lib/prism/prism.css">
+</head>
+
+<body>
+    
+    <div class="container py-5">
+
+        <h1 class="mb-4">🛠 Salesforce Metadata</h1>
+
+        <div class="row">
+            <div class="col-md mb-4">
+                <!-- Generate Metadata Package -->
+                <div class="card mb-4">
+                    <div class="card-header bg-primary text-white">
+                        <div class="card-title">
+                            <h4>🧰 Create Apex Trigger/Classes Package</h4>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div id="classInputs" class="mb-4">
+                            <div class="class-block mb-4 border-bottom">
+                                <div class="form-group">
+                                    <label>Apex Class Name:</label>
+                                    <input type="text" placeholder="Class Name" class="className form-control"/>
+                                </div>
+                                <div class="form-group">
+                                    <div class="editor">
+                                        <pre class="lang-js"><code></code></pre>
+                                        <textarea spellcheck="false" autocorrect="off" autocapitalize="off" translate="no" class="classContent editorJs"></textarea>
+                                    </div>
+                                </div>
+                                <button id="removedClass" class="btn button btn-danger mb-4">Remove Class</button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button id="addClass" class="btn button btn-secondary">➕ Add Another Class</button>
+                            <button id="generateZip" class="btn button btn-primary">Generate ZIP Package</button>
+                        </div>
+                        <div class="form-group">
+                            <a id="downloadLink" style="display:none;" download="metadata-package.zip" class="btn button btn-success">⬇ Download ZIP</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Apex Class Test Builder -->
+                <div class="card mb-4">
+                    <div class="card-header bg-primary text-white">
+                        <div class="card-title">
+                            <h4>🧪 Apex Test Builder</h4>
+                        </div>
+                    </div>
+                    
+                    <div class="card-body">
+                        <div class="form-group">
+                            <div class="editor">
+                                <pre class="lang-js"><code></code></pre>
+                                <textarea id="testClassCode" spellcheck="false" autocorrect="off" autocapitalize="off" translate="no" class="editorJs" placeholder="Write your Apex test class here..."></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button id="runTest" class="btn button btn-primary">▶ Run Test</button>
+                        </div>
+                        <div class="form-group">
+                            <pre id="testResult"></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md mb-4">
+                <!-- Metadata Deploy UI -->
+                <div class="card mb-4">
+                    <div class="card-header bg-primary text-white">
+                        <div class="card-title d-flex justify-content-between">
+                            <h4>📦 Metadata Deploy</h4>
+                            <div class="form-group">
+                                <label><input type="checkbox" id="useSandbox" class="form-radio"> Deploy to Sandbox</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label><input type="checkbox" class="includeMeta" value="classes" /> Apex Classes</label>
+                            <label><input type="checkbox" class="includeMeta" value="triggers" /> Triggers</label>
+                            <label><input type="checkbox" class="includeMeta" value="objects" /> Custom Objects</label>
+                            <label><input type="checkbox" class="includeMeta" value="layouts" /> Layouts</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="file" id="zipFileInput" accept=".zip"  class="form-control"/>
+                        </div>
+                        <div class="form-group">
+                            <button id="deployZipBtn" class="btn button btn-primary">Deploy ZIP to Org</button>
+                        </div>
+                        <div class="form-group">
+                            <pre id="deployStatus"></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Apex Class Test Builder -->
+                <div class="card mb-4">
+                    <div class="card-header bg-primary text-white">
+                        <div class="card-title">
+                            <h4>🔍 Apex Linter</h4>
+                        </div>
+                    </div>
+                    
+                    <div class="card-body">
+                        <div class="form-group">
+                            <div class="editor">
+                                <pre class="lang-js"><code></code></pre>
+                                <textarea id="lintCode" spellcheck="false" autocorrect="off" autocapitalize="off" translate="no" class="editorJs" placeholder="Paste your Apex class here..."></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button id="lintBtn" class="btn button btn-primary">🔎 Lint</button>
+                        </div>
+                        <div class="form-group">
+                            <pre id="lintResult"></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="../lib/prism/prism.js" manual></script>
+    <script type="module" src="../js/editor.js"></script>
+    <script type="module" src="../js/metadata.js"></script>
+</body>
+
+</html>
