@@ -112,10 +112,6 @@ export function initUIHandlers() {
     chrome.tabs.create({ url: chrome.runtime.getURL("./templates/logger.html") });
   };
 
-  document.getElementById("openFieldMapping").onclick = () => {
-    chrome.tabs.create({ url: chrome.runtime.getURL("./templates/field-mapping.html") });
-  };
-
   document.getElementById("generateCallLog").onclick = async () => {
     const name = prompt("Lead/Contact Name:");
     const topic = prompt("Call topic:");
